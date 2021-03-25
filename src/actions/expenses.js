@@ -1,3 +1,4 @@
+import { v4 as uuid } from 'uuid';
 import * as types from './types/expenses';
 
 export const startAddExpense = (expenseData = {}) => {
@@ -11,7 +12,7 @@ export const startAddExpense = (expenseData = {}) => {
 
     const expense = { description, note, amount, createdAt };
 
-    return dispatch(addExpense(expense));
+    return dispatch(addExpense({ id: uuid(), ...expense }));
   };
 };
 
