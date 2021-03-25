@@ -29,7 +29,10 @@ class ExpenseForm extends React.Component {
 
   onAmountChange = (e) => {
     const amount = e.target.value;
-    this.setState(() => ({ amount }));
+
+    if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) {
+      this.setState(() => ({ amount }));
+    }
   };
 
   onDateChange = (createdAt) => {
