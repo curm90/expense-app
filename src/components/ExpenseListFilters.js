@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+// import { DateRangePicker } from 'react-dates';
 import {
+  // setStartDate,
+  // setEndDate,
   setTextFilter,
   sortByAmount,
   sortByDate,
-  // setStartDate,
-  // setEndDate,
 } from '../actions/filters';
 
 class ExpenseListFilters extends React.Component {
@@ -16,6 +17,15 @@ class ExpenseListFilters extends React.Component {
       calenderFocused: null,
     };
   }
+
+  // onDatesChange = ({ startDate, endDate }) => {
+  //   this.props.dispatch(setStartDate(startDate));
+  //   this.props.dispatch(setEndDate(endDate));
+  // };
+
+  // onFocusChange = (calendarFocused) => {
+  //   this.setState(() => ({ calendarFocused }));
+  // };
 
   render() {
     return (
@@ -38,6 +48,16 @@ class ExpenseListFilters extends React.Component {
           <option value='date'>Date</option>
           <option value='amount'>Amount</option>
         </select>
+        {/* <DateRangePicker
+          startDateId='startDate'
+          endDateId='endDate'
+          startDate={this.props.filters.startDate}
+          endDate={this.props.endDate}
+          onDatesChange={this.onDatesChange}
+          focusedInput={this.state.calenderFocused}
+          onFocusChange={this.onFocusChange}
+          showClearDates={true}
+        /> */}
       </div>
     );
   }
