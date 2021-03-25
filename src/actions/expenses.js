@@ -1,24 +1,20 @@
 import { v4 as uuid } from 'uuid';
 import * as types from './types/expenses';
 
-export const startAddExpense = (expenseData = {}) => {
-  return (dispatch) => {
-    const {
-      description = '',
-      note = '',
-      amount = '',
-      createdAt = '',
-    } = expenseData;
-
-    const expense = { description, note, amount, createdAt };
-
-    return dispatch(addExpense({ id: uuid(), ...expense }));
-  };
-};
-
-export const addExpense = (expense) => ({
+export const addExpense = ({
+  description = '',
+  note = '',
+  amount = 0,
+  createdAt = 0,
+} = {}) => ({
   type: types.ADD_EXPENSE,
-  expense,
+  expense: {
+    id: uuid(),
+    description,
+    note,
+    amount,
+    createdAt,
+  },
 });
 
 export const removeExpense = ({ id } = {}) => ({
