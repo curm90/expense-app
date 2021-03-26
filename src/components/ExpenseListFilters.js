@@ -14,7 +14,7 @@ class ExpenseListFilters extends React.Component {
     super(props);
 
     this.state = {
-      calenderFocused: null,
+      calendarFocused: null,
     };
   }
 
@@ -39,7 +39,6 @@ class ExpenseListFilters extends React.Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <div>
         <input
@@ -64,9 +63,9 @@ class ExpenseListFilters extends React.Component {
           startDateId='startDate'
           endDateId='endDate'
           startDate={this.props.filters.startDate}
-          endDate={this.props.endDate}
+          endDate={this.props.filters.endDate}
           onDatesChange={this.onDatesChange}
-          focusedInput={this.state.calenderFocused}
+          focusedInput={this.state.calendarFocused}
           onFocusChange={this.onFocusChange}
           showClearDates={true}
         />
