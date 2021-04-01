@@ -22,7 +22,11 @@ const devConfig = {
   measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
-const config = process.env.NODE_ENV === 'development' ? devConfig : testConfig;
+const config =
+  process.env.NODE_ENV === 'development' ||
+  process.env.NODE_ENV === 'production'
+    ? devConfig
+    : testConfig;
 
 firebase.initializeApp(config);
 
