@@ -1,20 +1,39 @@
-import { v4 as uuid } from 'uuid';
+import db from '../firebase/firebase';
 import * as types from './types/expenses';
 
-export const addExpense = ({
-  description = '',
-  note = '',
-  amount = 0,
-  createdAt = 0,
-} = {}) => ({
+export const startAddExpense = (expenseData = {}) => {
+  return (dispatch) => {
+    const {
+      description = '',
+      note = '',
+      amount = 0,
+      createdAt = 0,
+    } = expenseData;
+
+    const expense = {
+      description,
+      note,
+      amount,
+      createdAt,
+    };
+
+    return db
+      .ref('expenses')
+      .push(expense)
+      .then((ref) => {
+        dispatch(
+          addExpense({
+            id: ref.key,
+            ...expense,
+          })
+        );
+      });
+  };
+};
+
+export const addExpense = (expense) => ({
   type: types.ADD_EXPENSE,
-  expense: {
-    id: uuid(),
-    description,
-    note,
-    amount,
-    createdAt,
-  },
+  expense,
 });
 
 export const removeExpense = ({ id } = {}) => ({
