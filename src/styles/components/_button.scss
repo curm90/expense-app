@@ -1,0 +1,15 @@
+.button {
+  background: $light-blue;
+  border-radius: 3px;
+  border: none;
+  color: white;
+  font-size: $font-size-large;
+  font-weight: 300;
+  padding: 1rem 2rem;
+  transition: all ease-out 0.1s;
+
+  &:hover {
+    background: lighten($light-blue, 10%);
+    transition: all ease-in 0.1s;
+  }
+}
