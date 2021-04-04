@@ -3,13 +3,20 @@
   border-radius: 3px;
   border: none;
   color: white;
+  display: inline-block;
   font-size: $font-size-large;
   font-weight: 300;
   padding: 1rem 2rem;
+  line-height: 1;
   transition: all ease-out 0.1s;
+  text-decoration: none;
 
   &:hover {
     background: lighten($light-blue, 10%);
     transition: all ease-in 0.1s;
   }
+}
+
+.button--link {
+  background: none;
 }
