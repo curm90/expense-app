@@ -12,7 +12,23 @@
 .input-group__item {
   margin-bottom: $s-size;
 
+  > .text-input,
+  select,
+  .DateRangePicker,
+  .DateRangePickerInput {
+    width: 100%;
+  }
+
   @media (min-width: $desktop-breakpoint) {
-    margin: 0 $s-size 0 0;
+    > .text-input,
+    .DateRangePicker {
+      width: auto;
+    }
+  }
+}
+
+.input-group__item:nth-of-type(2) {
+  @media (min-width: $desktop-breakpoint) {
+    margin: 0 $s-size;
   }
 }
